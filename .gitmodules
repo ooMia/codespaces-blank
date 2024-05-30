@@ -1,3 +1,3 @@
-[submodule "springboot/live-stream"]
-	path = springboot/live-stream
-	url = https://github.com/ooMia/live-stream.git
+[submodule "java-spring/live-stream"]
+path = java-spring/live-stream
+url = https://github.com/ooMia/live-stream
