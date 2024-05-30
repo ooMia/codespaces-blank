@@ -1,0 +1,3 @@
+[submodule "springboot/live-stream"]
+	path = springboot/live-stream
+	url = https://github.com/ooMia/live-stream.git
