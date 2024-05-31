@@ -17,9 +17,10 @@ void print_as_binary(unsigned char binary_data)
         printf("| %d ", (binary_data & (1 << i)) >> i);
     }
     printf("|\n");
+    return;
 }
 
-int main()
+int main(int argc, char *argv[])
 {
 
 // https://sourceforge.net/p/predef/wiki/Architectures/
