@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+/**
+ * @file endian.example.c
+ * @brief This file provides an example of checking the endianness of the system.
+ * @return 0 if successful.
+ */
 int is_little_endian()
 {
     short num = 0x0100;     // 00000001 00000000
