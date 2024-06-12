@@ -1,3 +1,4 @@
+<ISSUE_KEY> #close #comment <comment_string>
 ✨ Feat : 새로운 기능
 🐛 Fix : 오류 수정
 🔧 Modify : 위치 변경
@@ -9,3 +10,4 @@
 🎨 Style : 의미 없는 코드 형식 수정
 📝 Docs : 문서 수정
 🚧 WIP : 작업 진행 중
+#time 1w 2d 4h 30m Total work logged
