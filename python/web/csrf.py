@@ -58,7 +58,8 @@ def vuln():
     xss_filter = ["frame", "script", "on"]
     for _ in xss_filter:
         param = param.replace(_, "*")
-    return param
+    # return param # xss vulnurability
+    pass
 
 
 @app.route("/flag", methods=["GET", "POST"])
