@@ -2,17 +2,15 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
-import {Counter} from "../src/Counter.sol";
+import {PlusCalculator} from "src/PlusCalculator.sol";
 
-contract CounterScript is Script {
-    Counter public counter;
-
+contract PlusCalculatorScript is Script {
     function setUp() public {}
 
-    function run() public {
+    function run(address level) public {
         vm.startBroadcast();
 
-        counter = new Counter();
+        PlusCalculator calculator = new PlusCalculator(level);
 
         vm.stopBroadcast();
     }
