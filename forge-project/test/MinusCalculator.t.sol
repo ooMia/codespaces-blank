@@ -19,8 +19,11 @@ contract MinusCalculatorTest is Test {
     function testFuzz_Minus(uint256 input1, uint256 input2) public view {
         try calculator.minus(input1, input2) returns (uint256 res) {
             require(res == input1 - input2, "wrong result");
-        } catch {
-            // allow overflow panic
+        } catch Panic(uint256 errorCode) {
+            // allow underflow panic
+            if (errorCode != 0x11) {
+                revert("Fuzz_Division#1");
+            }
         }
     }
 }
