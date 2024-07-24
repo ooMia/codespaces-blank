@@ -2,10 +2,10 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {PlusCalculator} from "src/PlusCalculator.sol";
+import {IPlusCalculator, PlusCalculator} from "src/PlusCalculator.sol";
 
 contract PlusCalculatorTest is Test {
-    PlusCalculator private calculator;
+    IPlusCalculator private calculator;
 
     function setUp() public {
         calculator = new PlusCalculator();

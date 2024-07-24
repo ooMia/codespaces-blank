@@ -4,13 +4,25 @@ pragma solidity ^0.8.13;
 import {Script, console} from "forge-std/Script.sol";
 import {PlusCalculator} from "src/PlusCalculator.sol";
 
-contract PlusCalculatorScript is Script {
-    function setUp() public {}
+interface IProblem {
+    function setPlusCalculator(address _plusCalculator) external;
+}
 
-    function run(address level) public {
+contract DeployScript is Script {
+    IProblem problem;
+
+    function setUp(address _problem) public {
+        problem = IProblem(_problem);
+    }
+
+    function run() public {
         vm.startBroadcast();
 
-        PlusCalculator calculator = new PlusCalculator(level);
+        // Deploy Target
+        PlusCalculator target = new PlusCalculator();
+
+        // Set Target
+        problem.setPlusCalculator(address(target));
 
         vm.stopBroadcast();
     }
