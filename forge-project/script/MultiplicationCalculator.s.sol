@@ -11,7 +11,7 @@ interface IProblem {
 }
 
 contract DeployScript is Script {
-    function setUp() public {}
+    // function setUp() public {}
 
     function run(address _problem) public {
         IProblem problem = IProblem(_problem);

@@ -9,13 +9,11 @@ interface IProblem {
 }
 
 contract DeployScript is Script {
-    IProblem problem;
+    // function setUp() public {}
 
-    function setUp(address _problem) public {
-        problem = IProblem(_problem);
-    }
+    function run(address _problem) public {
+        IProblem problem = IProblem(_problem);
 
-    function run() public {
         vm.startBroadcast();
 
         // Deploy Target
