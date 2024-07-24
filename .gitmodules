@@ -1,6 +1,6 @@
 [submodule "java-spring/live-stream"]
 path = java-spring/live-stream
 url = https://github.com/ooMia/live-stream
-[submodule "web3oj"]
-	path = web3oj
-	url = https://github.com/web3oj/web3oj-sol
+[submodule "forge-project/lib/forge-std"]
+	path = forge-project/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
