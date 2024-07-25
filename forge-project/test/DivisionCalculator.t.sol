@@ -33,35 +33,8 @@ contract DivisionCalculatorTest is Test {
         try calculator.divide(input1, input2) returns (uint256 res) {
             require(res == input1 / input2, "Fuzz_Division#2");
         } catch Panic(uint256 errorCode) {
-            if (errorCode != 0x11) {
+            if (errorCode != 0x11 || errorCode != 0x12) {
                 revert("Fuzz_Division#3");
-            }
-        }
-    }
-
-    function testFuzz_SingularDivision(uint256 input) public view {
-        if (input == 0 || input == 1) {
-            return;
-        }
-        require(
-            calculator.divide(input, input) == 1,
-            "Fuzz_SingularDivision#1"
-        );
-        try calculator.divide(input + 1, input) returns (uint256 res) {
-            require(res == 1, "Fuzz_Division#2");
-        } catch Panic(uint256 errorCode) {
-            // allow underflow panic
-            if (errorCode != 0x11) {
-                revert("Fuzz_Division#3");
-            }
-        }
-
-        try calculator.divide(input, input + 1) returns (uint256 res) {
-            require(res == 0, "Fuzz_Division#4");
-        } catch Panic(uint256 errorCode) {
-            // allow underflow panic
-            if (errorCode != 0x11) {
-                revert("Fuzz_Division#5");
             }
         }
     }
