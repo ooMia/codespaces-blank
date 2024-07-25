@@ -17,13 +17,17 @@ contract MinusCalculatorTest is Test {
     }
 
     function testFuzz_Minus(uint256 input1, uint256 input2) public view {
+        // assert input1 > input2
+        if (input1 < input2) {
+            uint256 temp = input1;
+            input1 = input2;
+            input2 = temp;
+        }
+        assert(input1 >= input2);
         try calculator.minus(input1, input2) returns (uint256 res) {
             require(res == input1 - input2, "wrong result");
         } catch Panic(uint256 errorCode) {
-            // allow underflow panic
-            if (errorCode != 0x11) {
-                revert("Fuzz_Division#1");
-            }
+            if (errorCode == 0x11) revert();
         }
     }
 }
