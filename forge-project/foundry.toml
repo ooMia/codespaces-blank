@@ -4,7 +4,7 @@ test = 'test'
 script = 'script'
 out = 'out'
 libs = ['lib']
-evm_version = 'cancun'
+evm_version = 'shanghai'
 eth_rpc_url = "https://eth-sepolia.g.alchemy.com/v2/S4JLchhpwNEjAg296euR_8-GRTlhqwmJ"
 
 
