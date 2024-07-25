@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.26;
+pragma solidity ^0.8.0;
 
 interface IDivisionCalculator {
     function divide(uint256, uint256) external pure returns (uint256);
