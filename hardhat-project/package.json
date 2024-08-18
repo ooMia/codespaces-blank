@@ -1,0 +1,37 @@
+{
+    "name": "hardhat-project",
+    "version": "1.0.0",
+    "description": "project for solving solidity problems",
+    "main": "index.js",
+    "scripts": {
+        "account": "hardhat run scripts/listAccount.ts",
+        "chain": "hardhat node --network hardhat --no-deploy",
+        "compile": "hardhat compile",
+        "deploy": "hardhat deploy",
+        "fork": "MAINNET_FORKING_ENABLED=true hardhat node --network hardhat --no-deploy",
+        "generate": "hardhat run scripts/generateAccount.ts",
+        "flatten": "hardhat flatten",
+        "lint": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore ./*.ts ./deploy/**/*.ts ./scripts/**/*.ts ./test/**/*.ts",
+        "lint-staged": "eslint --config ./.eslintrc.json --ignore-path ./.eslintignore",
+        "format": "prettier --write ./*.ts ./deploy/**/*.ts ./scripts/**/*.ts ./test/**/*.ts",
+        "test": "hardhat test --network hardhat",
+        "verify": "hardhat verify"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ooMia/codespaces-blank.git"
+    },
+    "keywords": [
+        "solidity"
+    ],
+    "author": "ooMia",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ooMia/codespaces-blank/issues"
+    },
+    "homepage": "https://github.com/ooMia/codespaces-blank#readme",
+    "devDependencies": {
+        "@nomicfoundation/hardhat-toolbox-viem": "^3.0.0",
+        "hardhat": "^2.22.6"
+    }
+}
