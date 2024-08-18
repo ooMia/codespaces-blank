@@ -5,6 +5,5 @@ script = 'script'
 out = 'out'
 libs = ['lib']
 evm_version = 'cancun'
-eth_rpc_url = "https://eth-sepolia.g.alchemy.com/v2/S4JLchhpwNEjAg296euR_8-GRTlhqwmJ"
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
